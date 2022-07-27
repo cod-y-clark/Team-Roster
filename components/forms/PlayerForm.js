@@ -13,7 +13,7 @@ const initialState = {
   show: '',
 };
 
-function PlayerForm({ obj }) {
+export default function PlayerForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
   const router = useRouter();
   const { user } = useAuth();
@@ -34,18 +34,18 @@ function PlayerForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updatePlayer(formInput)
-        .then(() => router.push(`/player/${obj.firebaseKey}`));
+        .then(() => router.push('/'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createPlayer(payload).then(() => {
-        router.push('/team');
+        router.push('/');
       });
     }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Player</h2>
+      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update a' : 'Add a'} Dad</h2>
 
       <FloatingLabel controlId="floatingInput1" label="Name" className="mb-3">
         <Form.Control
@@ -80,7 +80,7 @@ function PlayerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Player</Button>
+      <Button type="submit">{obj.firebaseKey ? 'Update a' : 'Add a'} Dad</Button>
     </Form>
   );
 }
@@ -97,5 +97,3 @@ PlayerForm.propTypes = {
 PlayerForm.defaultProps = {
   obj: initialState,
 };
-
-export default PlayerForm;
