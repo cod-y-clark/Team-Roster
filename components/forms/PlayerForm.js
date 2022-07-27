@@ -10,7 +10,7 @@ import { createPlayer, updatePlayer } from '../../api/playerData';
 const initialState = {
   image: '',
   name: '',
-  role: '',
+  show: '',
 };
 
 function PlayerForm({ obj }) {
@@ -58,12 +58,12 @@ function PlayerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput3" label="Role" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="Show" className="mb-3">
         <Form.Control
           type="text"
-          placeholder="Enter Role"
-          name="role"
-          value={formInput.role}
+          placeholder="Enter Show"
+          name="show"
+          value={formInput.show}
           onChange={handleChange}
           required
         />
@@ -89,7 +89,7 @@ PlayerForm.propTypes = {
   obj: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
-    role: PropTypes.string,
+    show: PropTypes.string,
     firebaseKey: string,
   }),
 };
