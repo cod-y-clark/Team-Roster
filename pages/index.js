@@ -21,7 +21,7 @@ function Home() {
   return (
     <div className="text-center my-4">
       <Link href="/player/new" passHref>
-        <Button>Add A Player</Button>
+        <Button>Add A Dad</Button>
       </Link>
       <div className="d-flex flex-wrap">
         {players.map((player) => (
